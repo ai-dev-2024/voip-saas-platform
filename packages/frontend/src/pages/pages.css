@@ -1,0 +1,50 @@
+/* Shared Page Styles */
+
+.page {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.page-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+    flex-wrap: wrap;
+}
+
+.page-title {
+    font-size: var(--text-3xl);
+    font-weight: var(--font-bold);
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.page-subtitle {
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    margin: var(--space-2) 0 0;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: var(--space-8);
+    color: var(--text-secondary);
+}
+
+.empty-icon {
+    color: var(--text-muted);
+    margin-bottom: var(--space-3);
+}
+
+.empty-state p {
+    font-weight: var(--font-medium);
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.empty-state span {
+    font-size: var(--text-sm);
+}

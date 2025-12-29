@@ -1,0 +1,308 @@
+/* Softphone Styles */
+
+.softphone {
+    width: 320px;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border-default);
+    overflow: hidden;
+    box-shadow: var(--shadow-xl);
+}
+
+.softphone.in-call {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px var(--color-primary-light), var(--shadow-xl);
+}
+
+/* Header */
+.softphone-header {
+    padding: var(--space-4);
+    border-bottom: 1px solid var(--border-muted);
+}
+
+.softphone-header h4 {
+    font-size: var(--text-base);
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.softphone-error {
+    margin-top: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+    background: var(--color-error-light);
+    color: var(--color-error);
+    font-size: var(--text-xs);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+}
+
+/* Caller Select */
+.caller-select {
+    padding: var(--space-4);
+    border-bottom: 1px solid var(--border-muted);
+    position: relative;
+}
+
+.caller-select label {
+    display: block;
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+    margin-bottom: var(--space-2);
+}
+
+.caller-select-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    font-size: var(--text-sm);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.caller-select-btn:hover {
+    border-color: var(--color-primary);
+}
+
+.caller-select-btn span {
+    flex: 1;
+    text-align: left;
+}
+
+.caller-dropdown {
+    position: absolute;
+    top: 100%;
+    left: var(--space-4);
+    right: var(--space-4);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    z-index: 10;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.caller-option {
+    width: 100%;
+    padding: var(--space-3);
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: var(--text-sm);
+    text-align: left;
+    cursor: pointer;
+    transition: background var(--transition-fast);
+}
+
+.caller-option:hover {
+    background: var(--bg-tertiary);
+}
+
+.caller-option.active {
+    background: var(--color-primary-light);
+    color: var(--color-primary);
+}
+
+.caller-empty {
+    padding: var(--space-4);
+    text-align: center;
+    color: var(--text-muted);
+    font-size: var(--text-sm);
+}
+
+/* Call Display */
+.call-display {
+    padding: var(--space-6) var(--space-4);
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.call-info {
+    text-align: center;
+}
+
+.call-status {
+    font-size: var(--text-sm);
+    color: var(--color-primary);
+    text-transform: capitalize;
+    margin-bottom: var(--space-1);
+}
+
+.call-number {
+    font-size: var(--text-xl);
+    font-weight: var(--font-bold);
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+}
+
+.call-timer {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-bold);
+    color: var(--color-success);
+    margin-top: var(--space-2);
+    font-family: var(--font-mono);
+}
+
+.dialpad-display {
+    width: 100%;
+    position: relative;
+}
+
+.dialpad-input {
+    width: 100%;
+    padding: var(--space-3);
+    padding-right: var(--space-10);
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
+    font-size: var(--text-xl);
+    font-family: var(--font-mono);
+    color: var(--text-primary);
+    text-align: center;
+    outline: none;
+    transition: all var(--transition-fast);
+}
+
+.dialpad-input:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-primary-light);
+}
+
+.dialpad-clear {
+    position: absolute;
+    right: var(--space-2);
+    top: 50%;
+    transform: translateY(-50%);
+    padding: var(--space-2);
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color var(--transition-fast);
+}
+
+.dialpad-clear:hover {
+    color: var(--text-primary);
+}
+
+/* Dialpad */
+.dialpad {
+    padding: var(--space-4);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.dialpad-row {
+    display: flex;
+    gap: var(--space-2);
+}
+
+.dialpad-key {
+    flex: 1;
+    aspect-ratio: 1;
+    max-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-muted);
+    border-radius: var(--radius-lg);
+    font-size: var(--text-xl);
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.dialpad-key:hover {
+    background: var(--bg-elevated);
+    transform: scale(1.05);
+}
+
+.dialpad-key:active {
+    background: var(--color-primary-light);
+    transform: scale(0.95);
+}
+
+/* Call Controls */
+.call-controls {
+    padding: var(--space-4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4);
+    border-top: 1px solid var(--border-muted);
+}
+
+.control-btn {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-full);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.control-btn:hover {
+    background: var(--bg-elevated);
+}
+
+.control-btn.active {
+    background: var(--color-warning-light);
+    border-color: var(--color-warning);
+    color: var(--color-warning);
+}
+
+.call-btn {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: var(--radius-full);
+    color: white;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.call-btn.call {
+    background: linear-gradient(135deg, var(--color-success) 0%, #0A5C0A 100%);
+    box-shadow: 0 4px 12px rgba(10, 163, 10, 0.4);
+}
+
+.call-btn.call:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(10, 163, 10, 0.5);
+}
+
+.call-btn.call:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.call-btn.hangup {
+    background: linear-gradient(135deg, var(--color-error) 0%, #8C1D18 100%);
+    box-shadow: 0 4px 12px rgba(255, 82, 82, 0.4);
+}
+
+.call-btn.hangup:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(255, 82, 82, 0.5);
+}

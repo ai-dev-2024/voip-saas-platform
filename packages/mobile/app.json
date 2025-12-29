@@ -1,0 +1,61 @@
+{
+    "expo": {
+        "name": "VoIP",
+        "slug": "voip-saas",
+        "version": "1.0.0",
+        "orientation": "portrait",
+        "icon": "./assets/icon.png",
+        "userInterfaceStyle": "automatic",
+        "splash": {
+            "image": "./assets/splash.png",
+            "resizeMode": "contain",
+            "backgroundColor": "#0D1117"
+        },
+        "assetBundlePatterns": [
+            "**/*"
+        ],
+        "ios": {
+            "supportsTablet": true,
+            "bundleIdentifier": "com.voipsaas.app",
+            "infoPlist": {
+                "NSMicrophoneUsageDescription": "VoIP needs microphone access for calls",
+                "NSCameraUsageDescription": "VoIP needs camera access for video calls",
+                "UIBackgroundModes": [
+                    "voip",
+                    "audio"
+                ]
+            }
+        },
+        "android": {
+            "adaptiveIcon": {
+                "foregroundImage": "./assets/adaptive-icon.png",
+                "backgroundColor": "#0D1117"
+            },
+            "package": "com.voipsaas.app",
+            "permissions": [
+                "android.permission.RECORD_AUDIO",
+                "android.permission.CAMERA",
+                "android.permission.MODIFY_AUDIO_SETTINGS"
+            ]
+        },
+        "web": {
+            "favicon": "./assets/favicon.png"
+        },
+        "plugins": [
+            [
+                "expo-splash-screen",
+                {
+                    "backgroundColor": "#0D1117",
+                    "image": "./assets/splash.png",
+                    "dark": {
+                        "image": "./assets/splash.png",
+                        "backgroundColor": "#0D1117"
+                    }
+                }
+            ]
+        ],
+        "extra": {
+            "apiUrl": "https://api.voipsaas.com"
+        }
+    }
+}

@@ -1,0 +1,233 @@
+/* Calls Page Styles */
+
+.calls-page {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.calls-layout {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: var(--space-6);
+    align-items: start;
+}
+
+@media (max-width: 1024px) {
+    .calls-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .calls-sidebar {
+        display: none;
+    }
+}
+
+/* Stats */
+.calls-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+}
+
+@media (max-width: 768px) {
+    .calls-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.stat-card {
+    text-align: center;
+}
+
+.stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--space-3);
+}
+
+.stat-icon.total {
+    background: var(--color-primary-light);
+    color: var(--color-primary);
+}
+
+.stat-icon.inbound {
+    background: var(--color-success-light);
+    color: var(--color-success);
+}
+
+.stat-icon.outbound {
+    background: var(--color-secondary-light);
+    color: var(--color-secondary);
+}
+
+.stat-icon.duration {
+    background: var(--color-warning-light);
+    color: var(--color-warning);
+}
+
+.stat-value {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-bold);
+    color: var(--text-primary);
+}
+
+.stat-label {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    margin-top: var(--space-1);
+}
+
+/* History Card */
+.history-card .card-title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.loading-state {
+    text-align: center;
+    padding: var(--space-8);
+    color: var(--text-secondary);
+}
+
+.calls-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.call-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3);
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-lg);
+    transition: background var(--transition-fast);
+}
+
+.call-row:hover {
+    background: var(--bg-elevated);
+}
+
+.call-direction {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.call-direction.inbound {
+    background: var(--color-success-light);
+    color: var(--color-success);
+}
+
+.call-direction.outbound {
+    background: var(--color-secondary-light);
+    color: var(--color-secondary);
+}
+
+.call-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.call-number {
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+}
+
+.call-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+    margin-top: var(--space-1);
+}
+
+.call-status {
+    text-transform: capitalize;
+}
+
+.call-status.completed {
+    color: var(--color-success);
+}
+
+.call-status.missed,
+.call-status.failed {
+    color: var(--color-error);
+}
+
+.call-duration {
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+}
+
+.call-cost {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+}
+
+/* Sidebar */
+.calls-sidebar {
+    position: sticky;
+    top: var(--space-6);
+}
+
+/* Mobile Softphone */
+.mobile-softphone-toggle {
+    display: none;
+    position: fixed;
+    bottom: var(--space-6);
+    right: var(--space-6);
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-full);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    border: none;
+    color: white;
+    cursor: pointer;
+    box-shadow: var(--shadow-lg);
+    z-index: var(--z-sticky);
+    transition: transform var(--transition-fast);
+}
+
+.mobile-softphone-toggle:hover {
+    transform: scale(1.1);
+}
+
+@media (max-width: 1024px) {
+    .mobile-softphone-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.mobile-softphone-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--bg-overlay);
+    z-index: var(--z-modal);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: var(--space-4);
+}
+
+.mobile-softphone-container {
+    max-width: 100%;
+}

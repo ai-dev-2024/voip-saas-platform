@@ -1,0 +1,154 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: voip-backend
+  labels:
+    app: voip-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: voip-backend
+  template:
+    metadata:
+      labels:
+        app: voip-backend
+    spec:
+      containers:
+        - name: backend
+          image: ghcr.io/your-org/voip-saas-backend:latest
+          ports:
+            - containerPort: 5000
+          env:
+            - name: NODE_ENV
+              value: "production"
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: voip-secrets
+                  key: database-url
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: voip-secrets
+                  key: jwt-secret
+            - name: TELNYX_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: voip-secrets
+                  key: telnyx-api-key
+            - name: STRIPE_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: voip-secrets
+                  key: stripe-secret-key
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 5000
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 5000
+            initialDelaySeconds: 5
+            periodSeconds: 5
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: voip-backend
+spec:
+  selector:
+    app: voip-backend
+  ports:
+    - port: 5000
+      targetPort: 5000
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: voip-frontend
+  labels:
+    app: voip-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: voip-frontend
+  template:
+    metadata:
+      labels:
+        app: voip-frontend
+    spec:
+      containers:
+        - name: frontend
+          image: ghcr.io/your-org/voip-saas-frontend:latest
+          ports:
+            - containerPort: 3000
+          env:
+            - name: VITE_API_URL
+              value: "https://api.your-domain.com"
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "256Mi"
+              cpu: "250m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: voip-frontend
+spec:
+  selector:
+    app: voip-frontend
+  ports:
+    - port: 3000
+      targetPort: 3000
+  type: ClusterIP
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: voip-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  tls:
+    - hosts:
+        - your-domain.com
+        - api.your-domain.com
+      secretName: voip-tls
+  rules:
+    - host: your-domain.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: voip-frontend
+                port:
+                  number: 3000
+    - host: api.your-domain.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: voip-backend
+                port:
+                  number: 5000

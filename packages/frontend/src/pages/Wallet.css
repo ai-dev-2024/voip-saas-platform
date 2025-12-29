@@ -1,0 +1,236 @@
+/* Wallet Page Styles */
+
+.wallet-page {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.loading-state {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    color: var(--text-secondary);
+}
+
+/* Wallet Cards */
+.wallet-cards {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--space-6);
+    margin-bottom: var(--space-6);
+}
+
+@media (max-width: 768px) {
+    .wallet-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Balance Card */
+.balance-card {
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+}
+
+.balance-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+}
+
+.balance-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-lg);
+    background: linear-gradient(135deg, var(--color-success) 0%, #0A5C0A 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.balance-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.balance-label {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+}
+
+.balance-amount {
+    font-size: var(--text-4xl);
+    font-weight: var(--font-bold);
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+}
+
+.balance-actions {
+    margin-top: var(--space-6);
+}
+
+/* Rates Card */
+.rates-title {
+    font-size: var(--text-base);
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+    margin-bottom: var(--space-4);
+}
+
+.rates-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.rate-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+}
+
+.rate-value {
+    font-weight: var(--font-medium);
+    color: var(--text-primary);
+}
+
+/* Transactions */
+.transactions-card .card-title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.transactions-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.transaction-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3);
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-lg);
+}
+
+.transaction-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.transaction-icon.credit {
+    background: var(--color-success-light);
+    color: var(--color-success);
+}
+
+.transaction-icon.debit {
+    background: var(--color-error-light);
+    color: var(--color-error);
+}
+
+.transaction-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.transaction-desc {
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    color: var(--text-primary);
+}
+
+.transaction-date {
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+}
+
+.transaction-amount {
+    font-weight: var(--font-semibold);
+}
+
+.transaction-amount.credit {
+    color: var(--color-success);
+}
+
+.transaction-amount.debit {
+    color: var(--color-error);
+}
+
+/* Top-up Modal */
+.topup-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.topup-label {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+.topup-presets {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-3);
+}
+
+.topup-preset {
+    padding: var(--space-4);
+    background: var(--bg-tertiary);
+    border: 2px solid var(--border-default);
+    border-radius: var(--radius-lg);
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.topup-preset:hover {
+    border-color: var(--color-primary);
+}
+
+.topup-preset.active {
+    background: var(--color-primary-light);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.topup-custom {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.topup-divider {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    text-align: center;
+}
+
+.topup-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-4);
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-lg);
+    margin-top: var(--space-2);
+}
+
+.topup-total-amount {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-bold);
+    color: var(--color-primary);
+}
