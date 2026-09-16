@@ -1,6 +1,6 @@
 # VoIP SaaS Platform (Skype-like)
 
-A production-ready VoIP SaaS platform with WebRTC softphone, DID number management, wallet system, and cross-platform support.
+A full-stack VoIP SaaS reference implementation with WebRTC softphone, DID number management, wallet system, and cross-platform support.
 
 ## ✨ Features
 
@@ -36,8 +36,8 @@ A production-ready VoIP SaaS platform with WebRTC softphone, DID number manageme
 
 ```bash
 # Clone and install
-git clone <repo-url>
-cd Skype-like
+git clone https://github.com/ai-dev-2024/voip-saas-platform.git
+cd voip-saas-platform
 npm install
 
 # Setup environment
@@ -198,11 +198,11 @@ npm run test             # Run all unit tests
 | Service | Platform | Cost |
 |---------|----------|------|
 | **Frontend** | Vercel | Free tier |
-| **Backend** | Railway / Render | $5/mo |
+| **Backend** | Railway / Render | Check current pricing |
 | **Database** | Supabase / Neon | Free tier |
 | **Redis** | Upstash | Free tier |
 | **VoIP** | Telnyx | Pay-per-use |
-| **Payments** | Stripe | 2.9% + $0.30 |
+| **Payments** | Stripe | Check current pricing |
 
 ### Docker Deployment
 
